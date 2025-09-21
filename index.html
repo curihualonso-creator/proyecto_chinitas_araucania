@@ -1,103 +1,55 @@
 <!DOCTYPE html>
-
 <html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Chinitas AR</title>
+    <script src="./mindar/mindar-image.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe@1.2.0/dist/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar/dist/mindar-image-aframe.prod.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <a-scene
+      mindar-image="imageTargetSrc: https://raw.githubusercontent.com/curihualonso-creator/proyecto_chinitas_araucania/main/mindar/targets.mind"
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: true">
 
-  <head>
+      <a-assets>
+        <video id="eriopis_chilensis" src="./assets/eriopis_chilensis.webm" preload="auto" loop="true" muted></video>
+        <video id="harmonia_axiridis" src="./assets/harmonia_axiridis.webm" preload="auto" loop="true" muted></video>
+        <video id="adalia_angulifera" src="./assets/adalia_angulifera.webm" preload="auto" loop="true" muted></video>
+        <video id="eriopis_eschscholtzii" src="./assets/eriopis_eschscholtzii.webm" preload="auto" loop="true" muted></video>
+        <video id="hippodamia_adonia_variegata" src="./assets/hippodamia_adonia_variegata.webm" preload="auto" loop="true" muted></video>
+        <video id="hippodamia_convergens" src="./assets/hippodamia_convergens.webm" preload="auto" loop="true" muted></video>
+      </a-assets>
 
-    <meta charset="UTF-8">
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-video src="#eriopis_chilensis" width="1" height="0.9" position="0 0 0"></a-video>
+      </a-entity>
 
-    <title>Chinitas AR</title>
+      <a-entity mindar-image-target="targetIndex: 1">
+        <a-video src="#harmonia_axiridis" width="1" height="0.9" position="0 0 0"></a-video>
+      </a-entity>
 
-    <script src="./mindar/mindar-image.prod.js"></script>
+      <a-entity mindar-image-target="targetIndex: 2">
+        <a-video src="#adalia_angulifera" width="1" height="0.9" position="0 0 0"></a-video>
+      </a-entity>
 
-    <script src="https://cdn.jsdelivr.net/npm/aframe@1.2.0/dist/aframe.min.js"></script>
+      <a-entity mindar-image-target="targetIndex: 3">
+        <a-video src="#eriopis_eschscholtzii" width="1" height="0.9" position="0 0 0"></a-video>
+      </a-entity>
 
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar/dist/mindar-image-aframe.prod.js"></script>
+      <a-entity mindar-image-target="targetIndex: 4">
+        <a-video src="#hippodamia_adonia_variegata" width="1" height="0.9" position="0 0 0"></a-video>
+      </a-entity>
 
-    <link rel="stylesheet" href="style.css">
+      <a-entity mindar-image-target="targetIndex: 5">
+        <a-video src="#hippodamia_convergens" width="1" height="0.9" position="0 0 0"></a-video>
+      </a-entity>
 
-  </head>
-
-  <body>
-
-    <a-scene
-
-      mindar-image="imageTargetSrc: https://raw.githubusercontent.com/curihualonso-creator/proyecto_chinitas_araucania/main/mindar/targets.mind"
-
-      color-space="sRGB"
-
-      renderer="colorManagement: true, physicallyCorrectLights"
-
-      vr-mode-ui="enabled: false"
-
-      device-orientation-permission-ui="enabled: true">
-
-
-
-      <a-assets>
-        <video id="eriopis_chilensis" src="./assets/eriopis_chilensis.webm" preload="auto" loop="true"></video>
-        <video id="harmonia_axiridis" src="./assets/harmonia_axiridis.webm" preload="auto" loop="true"></video>
-        <video id="adalia_angulifera" src="./assets/adalia_angulifera.webm" preload="auto" loop="true"></video>
-        <video id="eriopis_eschscholtzii" src="./assets/eriopis_eschscholtzii.webm" preload="auto" loop="true"></video>
-        <video id="hippodamia_adonia_variegata" src="./assets/hippodamia_adonia_variegata.webm" preload="auto" loop="true"></video>
-        <video id="hippodamia_convergens" src="./assets/hippodamia_convergens.webm" preload="auto" loop="true"></video>
-      </a-assets>
-
-
-
-            <a-entity mindar-image-target="targetIndex: 0">
-
-        <a-video src="#eriopis_chilensis" width="1" height="0.9" position="0 0 0"></a-video>
-
-      </a-entity>
-
-
-
-            <a-entity mindar-image-target="targetIndex: 1">
-
-        <a-video src="#harmonia_axiridis" width="1" height="0.9" position="0 0 0"></a-video>
-
-      </a-entity>
-
-
-
-            <a-entity mindar-image-target="targetIndex: 2">
-
-        <a-video src="#adalia_angulifera" width="1" height="0.9" position="0 0 0"></a-video>
-
-      </a-entity>
-
-
-
-            <a-entity mindar-image-target="targetIndex: 3">
-
-        <a-video src="#eriopis_eschscholtzii" width="1" height="0.9" position="0 0 0"></a-video>
-
-      </a-entity>
-
-
-
-            <a-entity mindar-image-target="targetIndex: 4">
-
-        <a-video src="#hippodamia_adonia_variegata" width="1" height="0.9" position="0 0 0"></a-video>
-
-      </a-entity>
-
-
-
-            <a-entity mindar-image-target="targetIndex: 5">
-
-        <a-video src="#hippodamia_convergens" width="1" height="0.9" position="0 0 0"></a-video>
-
-      </a-entity>
-
-
-
-      <a-camera position="0 0 0"></a-camera>
-
-    </a-scene>
-
-  </body>
-
+      <a-camera position="0 0 0"></a-camera>
+    </a-scene>
+  </body>
 </html>
-
