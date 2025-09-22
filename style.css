@@ -1,14 +1,26 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #000;
-  color: white;
-  text-align: center;
+#start-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
-#instructions {
-  position: absolute;
-  top: 10px;
-  width: 100%;
-  font-size: 18px;
+#start-button {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+a-scene {
+  display: none;
 }
