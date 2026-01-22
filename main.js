@@ -78,12 +78,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cerrarPanelBtn.addEventListener('click', ocultarPanel);
 
-    // Ajuste del botón de inicio para que coincida con el ID de tu nuevo HTML
-    const startBtn = document.getElementById('start-button');
-    if (startBtn) {
-        startBtn.addEventListener('click', () => {
-            document.getElementById('loading-screen').style.display = 'none';
-            sceneEl.components['mindar-image'].start(); 
+    // Busca esta parte en tu main.js y reemplázala
+const startBtn = document.getElementById('start-button');
+if (startBtn) {
+    startBtn.addEventListener('click', () => {
+        document.getElementById('loading-screen').style.display = 'none';
+        
+        // 1. Prioridad máxima: Iniciar la cámara y RA
+        sceneEl.components['mindar-image'].start(); 
+        
+        // 2. Carga progresiva: Los videos se preparan sin bloquear la cámara
+        document.querySelectorAll('video').forEach(v => {
+            v.load(); 
         });
-    }
-});
+    });
+}z
