@@ -19,51 +19,84 @@
 
     <div id="info-panel" style="display:none;">
         <h2 id="chinita-nombre">Nombre</h2>
-        <video id="panel-video" controls playsinline width="100%"></video>
         <p id="chinita-descripcion">Descripción...</p>
         <button id="cerrar-panel">CERRAR</button>
     </div>
 
     <a-scene 
-        mindar-image="imageTargetSrc: ./mindar/targets.mind; autoStart: false;" 
-        embedded color-space="sRGB" 
-        renderer="colorManagement: true, physicallyCorrectLights" 
-        vr-mode-ui="enabled: false" 
-        device-orientation-permission-ui="enabled: true">
+      mindar-image="imageTargetSrc: ./mindar/targets.mind; autoStart: false;"
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: true">
 
-        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-assets>
+        <video id="vid_0" src="./assets/adalia_angulifera.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_1" src="./assets/adalia_bipunctata.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_2" src="./assets/adalia_deficiens.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_3" src="./assets/adalia_kuscheli.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_4" src="./assets/coccidophilus_arrowi.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_5" src="./assets/coleomegilla_quadrifasciata.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_6" src="./assets/cranoryssus_faimaire.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_7" src="./assets/cranoryssus_flavomarginatus.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_8" src="./assets/cranoryssus_variegatus.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_9" src="./assets/cycloneda_ancoralis.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_10" src="./assets/cycloneda_eryngii.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_11" src="./assets/cycloneda_fulvipennis.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_12" src="./assets/cycloneda_germainii.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_13" src="./assets/cycloneda_pretiosa.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_14" src="./assets/cycloneda_sanguinea.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_15" src="./assets/eriopis_chilensis.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_16" src="./assets/eriopis_eschscholtzii.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_17" src="./assets/harmonia_axiridis.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_18" src="./assets/hippodamia_adonia.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_19" src="./assets/hippodamia_convergens.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_20" src="./assets/hong_slipinskii.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_21" src="./assets/neorhizobius_robustus.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_22" src="./assets/neorhizobius_sanguinulentus.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_23" src="./assets/orbipressus_penai.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_24" src="./assets/parasidis_elguetai.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_25" src="./assets/parasidis_porteri.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_26" src="./assets/psyllobora_picta.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_27" src="./assets/rhyzobius_laphanthea.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_28" src="./assets/scymnus_bicolor.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_29" src="./assets/scymnus_loewii.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+        <video id="vid_30" src="./assets/stictospilus_darwini.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
+      </a-assets>
 
-        <a-entity mindar-image-target="targetIndex: 0"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 1"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 2"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 3"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 4"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 5"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 6"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 7"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 8"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 9"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 10"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 11"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 12"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 13"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 14"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 15"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 16"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 17"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 18"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 19"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 20"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 21"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 22"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 23"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 24"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 25"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 26"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 27"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 28"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 29"></a-entity>
-        <a-entity mindar-image-target="targetIndex: 30"></a-entity>
+      <a-entity mindar-image-target="targetIndex: 0"><a-video src="#vid_0" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 1"><a-video src="#vid_1" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 2"><a-video src="#vid_2" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 3"><a-video src="#vid_3" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 4"><a-video src="#vid_4" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 5"><a-video src="#vid_5" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 6"><a-video src="#vid_6" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 7"><a-video src="#vid_7" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 8"><a-video src="#vid_8" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 9"><a-video src="#vid_9" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 10"><a-video src="#vid_10" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 11"><a-video src="#vid_11" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 12"><a-video src="#vid_12" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 13"><a-video src="#vid_13" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 14"><a-video src="#vid_14" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 15"><a-video src="#vid_15" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 16"><a-video src="#vid_16" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 17"><a-video src="#vid_17" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 18"><a-video src="#vid_18" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 19"><a-video src="#vid_19" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 20"><a-video src="#vid_20" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 21"><a-video src="#vid_21" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 22"><a-video src="#vid_22" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 23"><a-video src="#vid_23" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 24"><a-video src="#vid_24" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 25"><a-video src="#vid_25" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 26"><a-video src="#vid_26" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 27"><a-video src="#vid_27" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 28"><a-video src="#vid_28" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 29"><a-video src="#vid_29" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+      <a-entity mindar-image-target="targetIndex: 30"><a-video src="#vid_30" width="1" height="0.9" position="0 0 0"></a-video></a-entity>
+
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
     </a-scene>
 
     <script src="main.js"></script>

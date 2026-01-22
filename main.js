@@ -2,65 +2,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const sceneEl = document.querySelector('a-scene');
     const startButton = document.querySelector("#start-button");
     const loadingScreen = document.querySelector("#loading-screen");
-    const infoPanel = document.getElementById('info-panel');
-    const panelVideo = document.getElementById('panel-video');
-    const nombreChinita = document.getElementById('chinita-nombre');
-    const descripcionChinita = document.getElementById('chinita-descripcion');
 
-    // Datos simplificados (Asegúrate de que los archivos sean .mp4 ahora)
+    // Datos para el panel informativo
     const chinitaData = [
-        { name: 'Adalia Angulifera', id: 'adalia_angulifera', desc: 'Chinita nativa.' },
-        { name: 'Adalia Bipunctata', id: 'adalia_bipunctata', desc: 'Chinita de dos puntos.' },
-        // ... Agrega los otros 29 aquí siguiendo el mismo formato ...
+        { name: "Adalia Angulifera", desc: "Chinita nativa con diseño angular." },
+        { name: "Adalia Bipunctata", desc: "La clásica chinita de dos puntos." },
+        // ... (puedes completar los otros 29 aquí)
     ];
 
-    // FUNCIÓN DE INICIO
+    // INICIO DE LA EXPERIENCIA
     startButton.addEventListener('click', () => {
-        console.log("Iniciando experiencia...");
         loadingScreen.style.display = 'none';
         
-        // Esto fuerza la solicitud de cámara
-        const arSystem = sceneEl.systems['mindar-image-system'];
-        if (arSystem) {
-            arSystem.start(); 
-        } else {
-            // Backup por si el sistema no carga por nombre
-            sceneEl.components['mindar-image'].start();
-        }
+        // Arranca el motor de MindAR (pide permiso cámara)
+        sceneEl.components['mindar-image'].start();
+
+        // Desbloquea el audio de todos los videos (política de navegadores)
+        const videos = document.querySelectorAll('video');
+        videos.forEach(v => {
+            v.play();
+            v.pause();
+        });
     });
 
-    function mostrarPanel(index) {
-        if (!chinitaData[index]) return;
-        const data = chinitaData[index];
-        
-        nombreChinita.textContent = data.name;
-        descripcionChinita.textContent = data.desc;
-        
-        // Cambiamos la fuente al vuelo para ahorrar memoria
-        panelVideo.src = `./assets/${data.id}.mp4`;
-        infoPanel.style.display = 'block';
-        panelVideo.play();
-        sceneEl.pause();
-    }
-
-    document.getElementById('cerrar-panel').addEventListener('click', () => {
-        infoPanel.style.display = 'none';
-        panelVideo.pause();
-        panelVideo.src = "";
-        sceneEl.play();
-    });
-
-    // Escuchar detecciones
-    sceneEl.addEventListener("arReady", (event) => {
-        console.log("MindAR está listo");
-    });
+    // LÓGICA DE DETECCIÓN PARA EL PANEL
+    const infoPanel = document.getElementById('info-panel');
+    const nombreTxt = document.getElementById('chinita-nombre');
+    const descTxt = document.getElementById('chinita-descripcion');
 
     sceneEl.addEventListener('loaded', () => {
         const targets = document.querySelectorAll('[mindar-image-target]');
         targets.forEach((target, i) => {
             target.addEventListener('targetFound', () => {
-                mostrarPanel(i);
+                const data = chinitaData[i] || { name: "Chinita " + i, desc: "Información en proceso." };
+                nombreTxt.textContent = data.name;
+                descTxt.textContent = data.desc;
+                infoPanel.style.display = 'block';
+            });
+            
+            target.addEventListener('targetLost', () => {
+                infoPanel.style.display = 'none';
             });
         });
+    });
+
+    document.getElementById('cerrar-panel').addEventListener('click', () => {
+        infoPanel.style.display = 'none';
     });
 });
