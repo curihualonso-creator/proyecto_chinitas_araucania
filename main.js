@@ -3,50 +3,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.querySelector("#start-button");
     const loadingScreen = document.querySelector("#loading-screen");
 
-    // Datos para el panel informativo
-    const chinitaData = [
-        { name: "Adalia Angulifera", desc: "Chinita nativa con diseño angular." },
-        { name: "Adalia Bipunctata", desc: "La clásica chinita de dos puntos." },
-        // ... (puedes completar los otros 29 aquí)
-    ];
-
-    // INICIO DE LA EXPERIENCIA
     startButton.addEventListener('click', () => {
-        loadingScreen.style.display = 'none';
+        console.log("Intentando activar cámara...");
         
-        // Arranca el motor de MindAR (pide permiso cámara)
-        sceneEl.components['mindar-image'].start();
+        // 1. Ocultar la interfaz de inicio
+        loadingScreen.style.display = 'none';
 
-        // Desbloquea el audio de todos los videos (política de navegadores)
+        // 2. FORZAR ARRANQUE DE CÁMARA
+        // Intentamos por el método de componente
+        if (sceneEl.components['mindar-image']) {
+            sceneEl.components['mindar-image'].start();
+        }
+
+        // 3. DESBLOQUEAR AUDIO
+        // Esto es vital para que los videos no se queden mudos o trabados
         const videos = document.querySelectorAll('video');
         videos.forEach(v => {
-            v.play();
-            v.pause();
+            v.play().then(() => {
+                v.pause();
+                v.currentTime = 0;
+            }).catch(e => console.log("Video listo para detectar marcador"));
         });
-    });
-
-    // LÓGICA DE DETECCIÓN PARA EL PANEL
-    const infoPanel = document.getElementById('info-panel');
-    const nombreTxt = document.getElementById('chinita-nombre');
-    const descTxt = document.getElementById('chinita-descripcion');
-
-    sceneEl.addEventListener('loaded', () => {
-        const targets = document.querySelectorAll('[mindar-image-target]');
-        targets.forEach((target, i) => {
-            target.addEventListener('targetFound', () => {
-                const data = chinitaData[i] || { name: "Chinita " + i, desc: "Información en proceso." };
-                nombreTxt.textContent = data.name;
-                descTxt.textContent = data.desc;
-                infoPanel.style.display = 'block';
-            });
-            
-            target.addEventListener('targetLost', () => {
-                infoPanel.style.display = 'none';
-            });
-        });
-    });
-
-    document.getElementById('cerrar-panel').addEventListener('click', () => {
-        infoPanel.style.display = 'none';
     });
 });

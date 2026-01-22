@@ -24,13 +24,10 @@
     </div>
 
     <a-scene 
-      mindar-image="imageTargetSrc: ./mindar/targets.mind; autoStart: false;"
-      color-space="sRGB"
-      renderer="colorManagement: true, physicallyCorrectLights"
-      vr-mode-ui="enabled: false"
-      device-orientation-permission-ui="enabled: true">
-
-      <a-assets>
+  mindar-image="imageTargetSrc: ./mindar/targets.mind; autoStart: false;" 
+  device-orientation-permission-ui="enabled: true"
+  embedded>
+  </a-scene>
         <video id="vid_0" src="./assets/adalia_angulifera.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
         <video id="vid_1" src="./assets/adalia_bipunctata.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
         <video id="vid_2" src="./assets/adalia_deficiens.mp4" preload="auto" loop="true" crossorigin="anonymous"></video>
