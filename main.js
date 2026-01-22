@@ -1,19 +1,40 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
 
-  
+    // 1. Datos actualizados para las 31 chinitas (Orden alfabético según tus archivos)
     const chinitaData = [
-        { name: 'Eriopis Chilensis', videoId: 'eriopis_chilensis', description: 'Chinita nativa crucial para el control de pulgones.' }, // targetIndex: 0
-        { name: 'Harmonia Axiridis', videoId: 'harmonia_axiridis', description: 'Especie exótica invasora con patrones variables.' }, // targetIndex: 1
-        { name: 'Adalia Angulifera', videoId: 'adalia_angulifera', description: 'Otra chinita nativa, fácil de reconocer por su patrón.' }, // targetIndex: 2
-        { name: 'Eriopis Eschscholtzii', videoId: 'eriopis_eschscholtzii', description: 'Chinita nativa con un patrón distintivo de manchas.' }, // targetIndex: 3
-        { name: 'Hippodamia Adonia', videoId: 'hippodamia_adonia_variegata', description: 'Variante de Hippodamia, conocida por su forma alargada.' }, // targetIndex: 4
-        { name: 'Hippodamia Convergens', videoId: 'hippodamia_convergens', description: 'Chinita muy beneficiosa, conocida por su alta voracidad.' }, // targetIndex: 5
+        { name: 'Adalia Angulifera', videoId: 'vid_0', description: 'Chinita nativa, fácil de reconocer por su patrón angular.' },
+        { name: 'Adalia Bipunctata', videoId: 'vid_1', description: 'Conocida como la chinita de dos puntos.' },
+        { name: 'Adalia Deficiens', videoId: 'vid_2', description: 'Especie con patrones variables, común en vegetación diversa.' },
+        { name: 'Adalia Kuscheli', videoId: 'vid_3', description: 'Pequeña chinita nativa de importancia ecológica.' },
+        { name: 'Coccidophilus Arrowi', videoId: 'vid_4', description: 'Especie depredadora de escamas y otros insectos pequeños.' },
+        { name: 'Coleomegilla Quadrifasciata', videoId: 'vid_5', description: 'Reconocible por sus franjas longitudinales.' },
+        { name: 'Cranoryssus Faimaire', videoId: 'vid_6', description: 'Chinita con un patrón de coloración distintivo.' },
+        { name: 'Cranoryssus Flavomarginatus', videoId: 'vid_7', description: 'Se caracteriza por los bordes amarillentos en sus élitros.' },
+        { name: 'Cranoryssus Variegatus', videoId: 'vid_8', description: 'Posee un diseño corporal muy variado y complejo.' },
+        { name: 'Cycloneda Ancoralis', videoId: 'vid_9', description: 'Llamada así por el dibujo en forma de ancla en su tórax.' },
+        { name: 'Cycloneda Eryngii', videoId: 'vid_10', description: 'Habitualmente asociada a plantas del género Eryngium.' },
+        { name: 'Cycloneda Fulvipennis', videoId: 'vid_11', description: 'Chinita con élitros de color rojizo o anaranjado uniforme.' },
+        { name: 'Cycloneda Germainii', videoId: 'vid_12', description: 'Especie nativa chilena con manchas circulares claras.' },
+        { name: 'Cycloneda Pretiosa', videoId: 'vid_13', description: 'Destaca por su coloración brillante y patrones definidos.' },
+        { name: 'Cycloneda Sanguinea', videoId: 'vid_14', description: 'Muy común, reconocida por su color rojo sangre intenso.' },
+        { name: 'Eriopis Chilensis', videoId: 'vid_15', description: 'La chinita chilena más común y gran controladora de pulgones.' },
+        { name: 'Eriopis Eschscholtzii', videoId: 'vid_16', description: 'Nativa con un patrón de manchas amarillas sobre fondo negro.' },
+        { name: 'Harmonia Axiridis', videoId: 'vid_17', description: 'Especie invasora muy variable, conocida como chinita arlequín.' },
+        { name: 'Hippodamia Adonia', videoId: 'vid_18', description: 'Especie alargada, eficiente depredadora en cultivos.' },
+        { name: 'Hippodamia Convergens', videoId: 'vid_19', description: 'Famosa por sus grandes migraciones y alta voracidad.' },
+        { name: 'Hong Slipinskii', videoId: 'vid_20', description: 'Especie pequeña con características morfológicas únicas.' },
+        { name: 'Neorhizobius Robustus', videoId: 'vid_21', description: 'Chinita de cuerpo robusto y hábitos discretos.' },
+        { name: 'Neorhizobius Sanguinulentus', videoId: 'vid_22', description: 'Posee manchas rojizas características en su dorso.' },
+        { name: 'Orbipressus Penai', videoId: 'vid_23', description: 'Especie poco común, nombrada en honor al entomólogo Luis Peña.' },
+        { name: 'Parasidis Elguetai', videoId: 'vid_24', description: 'Chinita nativa chilena con manchas blancas y negras.' },
+        { name: 'Parasidis Porteri', videoId: 'vid_25', description: 'Otra variante de Parasidis con importancia taxonómica.' },
+        { name: 'Psyllobora Picta', videoId: 'vid_26', description: 'Única por alimentarse de hongos (oídio) en lugar de insectos.' },
+        { name: 'Rhyzobius Laphanthea', videoId: 'vid_27', description: 'Especie pequeña utilizada a menudo en control biológico.' },
+        { name: 'Scymnus Bicolor', videoId: 'vid_28', description: 'Pequeña chinita de dos colores, experta en cazar ácaros.' },
+        { name: 'Scymnus Loewii', videoId: 'vid_29', description: 'Muy pequeña y peluda, fundamental en el control de plagas.' },
+        { name: 'Stictospilus Darwini', videoId: 'vid_30', description: 'Especie rara que habita en zonas específicas del sur.' }
     ];
 
-
-    
     const sceneEl = document.querySelector('a-scene');
     const infoPanel = document.getElementById('info-panel');
     const panelVideo = document.getElementById('panel-video');
@@ -21,59 +42,48 @@ document.addEventListener('DOMContentLoaded', () => {
     const descripcionChinita = document.getElementById('chinita-descripcion');
     const cerrarPanelBtn = document.getElementById('cerrar-panel');
 
-    
     function mostrarPanel(data) {
-       
         sceneEl.pause(); 
-        
-        // Carga los datos
         nombreChinita.textContent = data.name;
         descripcionChinita.textContent = data.description;
         
-        // Obtiene la ruta del video precargado en A-Assets (por el ID)
         const videoAsset = document.getElementById(data.videoId);
-        panelVideo.src = videoAsset.src;
-        
-        // Muestra el panel y reproduce el video
-        panelVideo.play();
-        infoPanel.style.display = 'block';
+        if (videoAsset) {
+            panelVideo.src = videoAsset.src;
+            panelVideo.play();
+            infoPanel.style.display = 'block';
+        }
     }
 
-    // 4. Función para ocultar el contenido
     function ocultarPanel() {
         panelVideo.pause();
         infoPanel.style.display = 'none';
-        // Reanuda la escena AR
         sceneEl.play(); 
     }
 
-    // 5. Asignar Eventos de Detección (Target Found/Lost)
     sceneEl.addEventListener('loaded', () => {
-        // Itera sobre todos los posibles marcadores (0 a 5)
+        // Ahora itera sobre los 31 elementos
         for (let i = 0; i < chinitaData.length; i++) {
             const targetEl = document.querySelector(`[mindar-image-target="targetIndex: ${i}"]`);
-            const data = chinitaData[i];
-
-            // Cuando el marcador (la ilustración PNG) es detectado
-            targetEl.addEventListener('targetFound', () => {
-                // Solo muestra el panel si aún no está abierto
-                if (infoPanel.style.display === 'none') {
-                     mostrarPanel(data);
-                }
-            });
-            
-            // Opcional: Al perder el marcador, podrías cerrarlo, pero es mejor que el usuario lo cierre manualmente.
-            // targetEl.addEventListener('targetLost', ocultarPanel); 
+            if (targetEl) {
+                const data = chinitaData[i];
+                targetEl.addEventListener('targetFound', () => {
+                    if (infoPanel.style.display === 'none' || !infoPanel.style.display) {
+                        mostrarPanel(data);
+                    }
+                });
+            }
         }
     });
 
-    // 6. Listener para el botón de cerrar
     cerrarPanelBtn.addEventListener('click', ocultarPanel);
 
-    // 7. Manejo del botón de inicio (mantenido de tu código original)
-    document.getElementById('start-button').addEventListener('click', () => {
-      document.getElementById('start-screen').style.display = 'none';
-      // Inicia la escena después de que el usuario toca (necesario por las políticas de autoplay)
-      sceneEl.components['mindar-image'].start(); 
-    });
+    // Ajuste del botón de inicio para que coincida con el ID de tu nuevo HTML
+    const startBtn = document.getElementById('start-button');
+    if (startBtn) {
+        startBtn.addEventListener('click', () => {
+            document.getElementById('loading-screen').style.display = 'none';
+            sceneEl.components['mindar-image'].start(); 
+        });
+    }
 });
