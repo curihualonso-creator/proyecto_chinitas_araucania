@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chinitas AR - Catálogo Completo</title>
+    <title>Chinitas AR - Araucanía</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/mindar-image-aframe.prod.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -17,22 +17,21 @@
         </div>
     </div>
 
-    <div id="info-panel">
-        <h2 id="chinita-nombre">Nombre de la Chinita</h2>
-        <video id="panel-video" controls playsinline></video>
-        <p id="chinita-descripcion">Cargando descripción...</p>
-        <button id="cerrar-panel">CERRAR Y SEGUIR EXPLORANDO</button>
+    <div id="info-panel" style="display:none;">
+        <h2 id="chinita-nombre">Nombre</h2>
+        <video id="panel-video" controls playsinline width="100%"></video>
+        <p id="chinita-descripcion">Descripción...</p>
+        <button id="cerrar-panel">CERRAR</button>
     </div>
 
     <a-scene 
-        mindar-image="imageTargetSrc: ./mindar/targets.mind; autoStart: false; uiScanning: #scanning-overlay;" 
-        color-space="sRGB" 
+        mindar-image="imageTargetSrc: ./mindar/targets.mind; autoStart: false;" 
+        embedded color-space="sRGB" 
         renderer="colorManagement: true, physicallyCorrectLights" 
         vr-mode-ui="enabled: false" 
         device-orientation-permission-ui="enabled: true">
 
-        <a-assets>
-            </a-assets>
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
         <a-entity mindar-image-target="targetIndex: 0"></a-entity>
         <a-entity mindar-image-target="targetIndex: 1"></a-entity>
@@ -65,8 +64,6 @@
         <a-entity mindar-image-target="targetIndex: 28"></a-entity>
         <a-entity mindar-image-target="targetIndex: 29"></a-entity>
         <a-entity mindar-image-target="targetIndex: 30"></a-entity>
-
-        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
     </a-scene>
 
     <script src="main.js"></script>
